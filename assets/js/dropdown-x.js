@@ -9,14 +9,19 @@
  */
 (function ($) {
     $(document).ready(function () {
-        $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+        $('ul.dropdown-menu [data-toggle=dropdown]').on('mouseenter', function (event) {
             event.preventDefault();
             event.stopPropagation();
             $(this).parent().siblings().removeClass('open');
-            if ($(this).parent().hasClass('open') && $(this).prop('href').length) {
-                window.location.href = $(this).prop('href');
+            $(this).parent().addClass('open');
+        });
+        $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+            if (!$(this).prop('href').length) {
+                return;
             }
-            $(this).parent().toggleClass('open');
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.href = $(this).prop('href');
         });
     });
 })(jQuery);
