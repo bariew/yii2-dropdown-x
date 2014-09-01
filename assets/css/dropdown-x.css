@@ -50,3 +50,30 @@
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
 }
+
+/* MENU */
+/* hiding submenus */
+.dropdown.dropdown-submenu.open ul {
+    display: block !important;
+    opacity: 1!important;
+}
+.dropdown.dropdown-submenu ul {
+    display: none !important;
+}
+.drop-left .dropdown-submenu > a:after {
+    border-color: transparent #cccccc transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    content: " ";
+    display: block;
+    float: left;
+    height: 0;
+    margin-left: -10px;
+    margin-top: 5px;
+    width: 0;
+}
+
+.drop-left .dropdown-submenu > .dropdown-menu {
+    right: 100%;
+    left: inherit;
+}

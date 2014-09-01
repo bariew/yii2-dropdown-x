@@ -6,7 +6,7 @@
  * @version 1.0.0
  */
 
-namespace kartik\dropdown;
+namespace bariew\dropdown;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
@@ -15,7 +15,7 @@ use yii\helpers\ArrayHelper;
  * An extended dropdown menu for Bootstrap 3 - that offers
  * submenu drilldown
  *
- * @author Kartik Visweswaran <kartikv2@gmail.com>
+ * @author Kartik Visweswaran <bariewv2@gmail.com>
  * @since 1.0
  */
 class DropdownX extends \yii\bootstrap\Dropdown

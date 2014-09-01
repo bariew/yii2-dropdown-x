@@ -6,23 +6,28 @@
  * @version 1.0.0
  */
 
-namespace kartik\dropdown;
+namespace bariew\dropdown;
+
+use yii\web\AssetBundle;
 
 /**
- * DropdownX bundle for \kartik\dropdown\DropdownX
+ * DropdownX bundle for \bariew\dropdown\DropdownX
  *
- * @author Kartik Visweswaran <kartikv2@gmail.com>
+ * @author Kartik Visweswaran <bariewv2@gmail.com>
  * @since 1.0
  */
-class DropdownXAsset extends \kartik\widgets\AssetBundle
+class DropdownXAsset extends AssetBundle
 {
-
-    public function init()
-    {
-        $this->setSourcePath(__DIR__ . '/../assets');
-        $this->setupAssets('css', ['css/dropdown-x']);
-        $this->setupAssets('js', ['js/dropdown-x']);
-        parent::init();
-    }
-
+    public $sourcePath = '@vendor/bariew/yii2-dropdown-x/assets/';
+    public $js = [
+        'js/dropdown-x.js',
+    ];
+    public $css = [
+        'css/dropdown-x.css',
+    ];
+    public $depends = [
+        'yii\web\JqueryAsset',
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+    ];
 }

@@ -13,6 +13,9 @@
             event.preventDefault();
             event.stopPropagation();
             $(this).parent().siblings().removeClass('open');
+            if ($(this).parent().hasClass('open') && $(this).prop('href').length) {
+                window.location.href = $(this).prop('href');
+            }
             $(this).parent().toggleClass('open');
         });
     });

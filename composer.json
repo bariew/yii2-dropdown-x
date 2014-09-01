@@ -1,8 +1,7 @@
 {
-    "name": "kartik-v/yii2-dropdown-x",
+    "name": "bariew/yii2-dropdown-x",
     "description": "An extended bootstrap dropdown widget for Yii 2 with submenu drilldown.",
     "keywords": ["yii2", "extension", "widget", "context", "menu", "mouse", "click"],
-    "homepage": "https://github.com/kartik-v/yii2-dropdown-x",
     "type": "yii2-extension",
     "license": "BSD 3-Clause",
     "authors": [
@@ -10,14 +9,15 @@
             "name": "Kartik Visweswaran",
             "email": "kartikv2@gmail.com",
             "homepage": "http://www.krajee.com/"
+        },
+        {
+            "name": "Bariev Pavel",
+            "email": "bariew@yandex.ru"
         }
     ],
-    "require": {
-        "kartik-v/yii2-widgets": "*"
-    },
     "autoload": {
         "psr-4": {
-            "kartik\\": ""
+            "bariew\\": ""
         }
     }
 }
