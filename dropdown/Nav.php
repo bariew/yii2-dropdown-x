@@ -78,10 +78,7 @@ class Nav extends MainNav
     }
 
     /**
-     * Renders a widget's item.
-     * @param string|array $item the item to render.
-     * @return string the rendering result.
-     * @throws InvalidConfigException
+     * @inheritdoc
      */
     public function renderItem($item)
     {
@@ -113,6 +110,7 @@ class Nav extends MainNav
                 if ($this->activateItems) {
                     $items = $this->isChildActive($items, $active);
                 }
+                // here is the difference
                 $items = DropdownX::widget([
                     'items' => $items,
                     'encodeLabels' => $this->encodeLabels,
