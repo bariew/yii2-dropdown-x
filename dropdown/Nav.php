@@ -33,7 +33,7 @@ class Nav extends MainNav
         }
         $itemTree = $this->generateItemsTree($this->items);
         $this->items = $this->createItems($itemTree);
-        parent::run();
+        return parent::run();
     }
 
     /**
