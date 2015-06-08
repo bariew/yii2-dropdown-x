@@ -53,11 +53,11 @@
 
 /* MENU */
 /* hiding submenus */
-.dropdown.dropdown-submenu.open ul {
+.dropdown-submenu.open ul {
     display: block !important;
     opacity: 1!important;
 }
-.dropdown.dropdown-submenu ul {
+.dropdown-submenu ul {
     display: none !important;
 }
 .drop-left .dropdown-submenu > a:after {
