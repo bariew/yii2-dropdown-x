@@ -66,9 +66,11 @@ class Nav extends MainNav
     {
         $result = [];
         foreach ($items as $key => $item) {
+            $items[$key]['childrenTree'] = @$items[$key]['childrenTree'] ? : [];
             if(!$item['parent_id']) {
                 $result[$key] = &$items[$key];
             } else if(isset($items[$item['parent_id']])) {
+                $items[$item['parent_id']]['childrenTree'] = @$items[$item['parent_id']]['childrenTree'] ? : [];
                 $children = $items[$item['parent_id']]['childrenTree'];
                 $children[$key] = &$items[$key];
                 $items[$item['parent_id']]['childrenTree'] = $children;
