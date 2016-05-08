@@ -1,7 +1,7 @@
 <?php
 /**
- * MainMenu class file.
- * @copyright (c) 2014, Galament
+ * Nav class file.
+ * @copyright (c) 2016, Pavel Bariev
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 
@@ -13,9 +13,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
- * Generates main admin menu.
- *
- * Usage description.
+ * Generates multiple level dropdown menu.
  * @author Pavel Bariev <bariew@yandex.ru>
  */
 class Nav extends MainNav
@@ -47,7 +45,7 @@ class Nav extends MainNav
         foreach ($items as $item) {
             $data = [
                 'label' => $item['name'],
-                'url'   => $item['url'],
+                'url'   => [$item['url']],
             ];
             if (isset($item['childrenTree']) && $item['childrenTree']) {
                 $data['items'] = $this->createItems($item['childrenTree']);
@@ -127,5 +125,24 @@ class Nav extends MainNav
         }
 
         return Html::tag('li', Html::a($label, $url, $linkOptions) . $items, $options);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function isChildActive($items, &$active)
+    {
+        foreach ($items as $i => $child) {
+            if (ArrayHelper::remove($items[$i], 'active', false) || $this->isItemActive($child)) {
+                Html::addCssClass($items[$i]['options'], 'active');
+                if ($this->activateParents) {
+                    $active = true;
+                }
+            }
+            if (isset ($items[$i]['items'])) {
+                $items[$i]['items'] = $this->isChildActive($items[$i]['items'], $child);
+            }
+        }
+        return $items;
     }
 }
