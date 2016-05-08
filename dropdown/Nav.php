@@ -20,6 +20,7 @@ class Nav extends MainNav
 {
     public $options = ['class' => ''];
     public $direction = 'right';
+    public $itemOptions = [];
 
     /**
      * @inheritdoc
@@ -46,6 +47,7 @@ class Nav extends MainNav
             $data = [
                 'label' => $item['name'],
                 'url'   => [$item['url']],
+                'options' => $this->itemOptions
             ];
             if (isset($item['childrenTree']) && $item['childrenTree']) {
                 $data['items'] = $this->createItems($item['childrenTree']);
